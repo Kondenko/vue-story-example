@@ -114,13 +114,6 @@ export default {
 </script>
 
 <style>
-html,
-body {
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
