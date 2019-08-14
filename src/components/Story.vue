@@ -141,7 +141,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss">
 .story {
   float: left;
   position: relative;
@@ -157,16 +157,17 @@ export default {
   width: 100%;
 }
 
+$sliceHeight: 8px;
 .timeline > .slice {
   background: rgba(0, 0, 0, 0.25);
-  height: 10px;
-  margin: 10px;
+  height: $sliceHeight;
+  margin: 8px;
   width: 100%;
 }
 
 .timeline > .slice > .progress {
   background: black;
-  height: 10px;
+  height: $sliceHeight;
   width: 0%;
 }
 
@@ -181,11 +182,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.slide p {
-  font-size: 60px;
-  opacity: 0.5;
 }
 
 .slide img {
