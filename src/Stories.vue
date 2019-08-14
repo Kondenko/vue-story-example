@@ -1,6 +1,12 @@
 <template>
   <div id="stories" :style="getMargin()">
-    <Story :slides="story" v-for="(story, index) in stories" :key="index" ref="stories" />
+    <Story
+      :slideDuration="slideDuration"
+      :slides="story"
+      v-for="(story, index) in stories"
+      :key="index"
+      ref="stories"
+    />
   </div>
 </template>
 
@@ -15,7 +21,8 @@ export default {
     Story
   },
   props: {
-    stories: Array
+    stories: Array,
+    slideDuration: Number
   },
   data() {
     return {
