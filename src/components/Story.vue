@@ -1,12 +1,12 @@
 <template>
-  <div class="story" :style="{ background: slides[currentSlideIndex] }">
+  <div class="story">
+    <div class="slide">
+      <img :src="slides[currentSlideIndex]" />
+    </div>
     <div class="timeline">
       <div class="slice" v-for="(slide, i) in slides" :key="i">
         <div class="progress">&nbsp;</div>
       </div>
-    </div>
-    <div class="slide">
-      <p>{{ slides[currentSlideIndex] }}</p>
     </div>
   </div>
 </template>
@@ -116,7 +116,7 @@ export default {
 
     // Tap on the side to navigate between slides
     this.hammer.on("tap", event => {
-      const lastThird = (x + width / 3);
+      const lastThird = x + width / 3;
       console.log(`last third: ${lastThird}`);
       console.log(`x: ${event.center.x}`);
       if (event.center.x >= lastThird) {
@@ -148,11 +148,10 @@ export default {
   height: 100%;
   width: 100%;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
 }
 
 .timeline {
+  position: absolute;
   display: flex;
   flex-grow: 0;
   width: 100%;
@@ -172,6 +171,9 @@ export default {
 }
 
 .slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
   /* Take the rest of the page */
   flex-grow: 1;
 
@@ -184,5 +186,11 @@ export default {
 .slide p {
   font-size: 60px;
   opacity: 0.5;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 </style>
