@@ -1,7 +1,12 @@
 <template>
   <div class="story">
     <div class="slide">
-      <img :src="slides[currentSlideIndex]" />
+      <img class="content" :src="slides[currentSlideIndex]" />
+      <!-- 
+      <video class="content"> 
+        <source :src="slides[currentSlideIndex]" type="video/mp4"/>
+      </video>
+      -->
     </div>
     <div class="timeline">
       <div class="slice" v-for="(slide, i) in slides" :key="i">
@@ -184,9 +189,9 @@ $sliceHeight: 8px;
   justify-content: center;
 }
 
-.slide img {
+.content {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 </style>
