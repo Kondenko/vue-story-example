@@ -160,13 +160,14 @@ export default {
   display: flex;
   flex-grow: 0;
   width: 100%;
+  margin: 8px 4px;
 }
 
-$sliceHeight: 8px;
+$sliceHeight: 4px;
 .timeline > .slice {
   background: rgba(0, 0, 0, 0.25);
   height: $sliceHeight;
-  margin: 8px;
+  margin: 2px;
   width: 100%;
 }
 
