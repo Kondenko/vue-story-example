@@ -2,11 +2,6 @@
   <div class="story">
     <div class="slide">
       <img class="content" :src="slides[currentSlideIndex]" />
-      <!-- 
-      <video class="content"> 
-        <source :src="slides[currentSlideIndex]" type="video/mp4"/>
-      </video>
-      -->
     </div>
     <div class="timeline">
       <div class="slice" v-for="(slide, i) in slides" :key="i">
@@ -79,9 +74,9 @@ export default {
   },
   mounted() {
     let $timeline = this.$el.getElementsByClassName("timeline")[0];
-    const component = document.getElementsByClassName("story")[0];
-    const width = component.offsetWidth;
-    const x = component.getBoundingClientRect().left;
+    const story = document.getElementsByClassName("story")[0];
+    const width = story.offsetWidth;
+    const x = story.getBoundingClientRect().left;
 
     // Add progress bars to the timeline animation group
     this.slides.forEach((color, index) => {
@@ -145,7 +140,7 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+<!-- Add "scoped" attribute to limit CSS to this story only -->
 <style lang="scss">
 .story {
   float: left;
@@ -155,12 +150,13 @@ export default {
   z-index: 1;
 }
 
+$width: 97%;
 .timeline {
   position: absolute;
   display: flex;
   flex-grow: 0;
-  width: 100%;
-  margin: 8px 4px;
+  width:  $width;
+  margin: 8px ((100% - $width) / 2);
 }
 
 $sliceHeight: 4px;
