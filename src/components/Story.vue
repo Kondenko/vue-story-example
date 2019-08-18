@@ -1,6 +1,7 @@
 <template>
   <div class="story">
     <div class="slide">
+      <div class="blurredBackground" :style="backgroundImage"></div>
       <img class="content" :src="slides[currentSlideIndex]" />
     </div>
     <div class="timeline">
@@ -71,6 +72,13 @@ export default {
       EventBus.$emit("PREVIOUS_STORY");
     }
   },
+  computed: {
+    backgroundImage: function() {
+      return {
+        "background-image": `url(${this.$props.slides[this.currentSlideIndex]}`
+      };
+    }
+  },
   mounted() {
     let $timeline = this.$el.getElementsByClassName("timeline")[0];
     const story = document.getElementsByClassName("story")[0];
@@ -137,6 +145,8 @@ export default {
 };
 </script>
 
+
+
 <!-- Add "scoped" attribute to limit CSS to this story only -->
 <style lang="scss">
 .story {
@@ -181,6 +191,15 @@ $sliceHeight: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+$blur: 40px;
+$size: 150%;
+.blurredBackground {
+  overflow: hidden;
+  width: $size;
+  height: $size;
+  filter: blur($blur);
 }
 
 .content {
