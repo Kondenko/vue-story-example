@@ -28,7 +28,6 @@ export default {
       duration: this.slideDuration,
       easing: "linear"
     });
-
     return {
       currentSlideIndex: 0,
       isActive: false,
@@ -117,8 +116,6 @@ export default {
     // Tap on the side to navigate between slides
     this.hammer.on("tap", event => {
       const lastThird = x + width / 3;
-      console.log(`last third: ${lastThird}`);
-      console.log(`x: ${event.center.x}`);
       if (event.center.x >= lastThird) {
         this.nextSlide();
       } else {
@@ -155,7 +152,7 @@ $width: 97%;
   position: absolute;
   display: flex;
   flex-grow: 0;
-  width:  $width;
+  width: $width;
   margin: 8px ((100% - $width) / 2);
 }
 
@@ -189,6 +186,6 @@ $sliceHeight: 4px;
 .content {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 </style>
